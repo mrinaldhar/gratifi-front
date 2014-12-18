@@ -20,7 +20,7 @@
 
         <div class="form-box" id="login-box">
             <div class="header">Sign In</div>
-            <form action="#" onsubmit="dosubmit(); return false;">
+            <form action="../gratifi-back/v1/index.php/login" method="POST">
                 <div class="body bg-gray">
                     <div class="form-group">
                         <input type="text" id="email" name="email" class="form-control" placeholder="Email Address"/>
@@ -48,24 +48,24 @@
 
     </body>
     <script>
-function dosubmit() {
-        $.ajax({
-  type: "POST",
-  url: "../gratifi-back/v1/index.php/login",
-  data: { 
-    email: $('#email').val(), 
-    password: $('#password').val() },
-})
-  .done(function( msg ) {
-    if (msg['error']==true) {
-        alert(msg.message);
-    }
-    else {
-        alert('Login successful.');
-    }
-  });
-     return false;
-}
+// function dosubmit() {
+//         $.ajax({
+//   type: "POST",
+//   url: "../gratifi-back/v1/index.php/login",
+//   data: { 
+//     email: $('#email').val(), 
+//     password: $('#password').val() },
+// })
+//   .done(function( msg ) {
+//     if (msg['error']==true) {
+//         alert(msg.message);
+//     }
+//     else {
+//         alert('Login successful.');
+//     }
+//   });
+//      return false;
+// }
 
     </script>
 </html>
