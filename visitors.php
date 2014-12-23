@@ -217,6 +217,28 @@ header('Location: ' . $home_url);
                 <!-- Main content -->
                 <section class="content">
 
+
+<!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        <div class="col-lg">
+                            <!-- small box -->
+
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title">Monthly Usage Statistics</h3>
+                                </div>
+                                <div class="box-body chart-responsive">
+                                    <div class="chart" id="chart-monthly" style="height: 300px;"></div>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+
+
+                        </div><!-- ./col -->
+                    
+
+                    </div><!-- /.row -->
+
+
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
                         <div class="col-md-6">
@@ -224,17 +246,64 @@ header('Location: ' . $home_url);
 
                             <div class="box box-info">
                                 <div class="box-header">
-                                    <h3 class="box-title">Line Chart</h3>
+                                    <h3 class="box-title">Age Statistics</h3>
                                 </div>
                                 <div class="box-body chart-responsive">
-                                    <div class="chart" id="line-chart" style="height: 300px;"></div>
+                                    <div class="chart" id="chart-age" style="height: 300px;"></div>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
 
 
                         </div><!-- ./col -->
                         
+                        <div class="col-md-6">
+                            <!-- small box -->
+
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title">Interests Statistics</h3>
+                                </div>
+                                <div class="box-body chart-responsive">
+                                    <div class="chart" id="chart-interests" style="height: 300px;"></div>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+
+
+                        </div><!-- ./col -->
+
+                        <div class="col-xs-6">
+                            <!-- small box -->
+
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title">Gender Statistics</h3>
+                                </div>
+                                <div class="box-body chart-responsive">
+                                    <div class="chart" id="chart-gender" style="height: 150px;"></div>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+
+
+                        </div><!-- ./col -->
                     </div><!-- /.row -->
+
+
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <!-- small box -->
+
+                            <div class="box box-solid bg-blue">
+                                <div class="box-body">
+                                    <h4>Total Visitors: <span id="totalvisitors"></span></h4>
+                                    <h4>Visitors/Day: <span id="visitorsperday"></span></h4>
+                                    <h4>Unique Visitors: <span id="uniquevisitors"></span></h4>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+
+
+                        </div><!-- ./col -->
+
+                    </div>
 
                     <!-- Main row -->
                     <div class="row">
@@ -633,38 +702,189 @@ header('Location: ' . $home_url);
         <script src="./js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
         <!-- AdminLTE App -->
-        <script src="./js/AdminLTE/app.js" type="text/javascript"></script>
+        // <script src="./js/AdminLTE/app.js" type="text/javascript"></script>
 
-        <script src="./js/AdminLTE/demo.js" type="text/javascript"></script>
+        // <script src="./js/AdminLTE/demo.js" type="text/javascript"></script>
         <script src="./js/plugins/raphael-min.js"></script>
 
         <script src="./js/plugins/morris/morris.min.js" type="text/javascript"></script>
 <script type="text/javascript">
             $(function() {
 
-                var line = new Morris.Line({
-                    element: 'line-chart',
+                // var line = new Morris.Line({
+                //     element: 'line-chart',
+                //     resize: true,
+                //     data: [
+                //         {y: '2011 Q1', item1: 2666, item2:500},
+                //         {y: '2011 Q2', item1: 2778},
+                //         {y: '2011 Q3', item1: 4912, item2:10000},
+                //         {y: '2011 Q4', item1: 3767},
+                //         {y: '2012 Q1', item1: 6810},
+                //         {y: '2012 Q2', item1: 5670},
+                //         {y: '2012 Q3', item1: 4820},
+                //         {y: '2012 Q4', item1: 15073},
+                //         {y: '2013 Q1', item1: 10687},
+                //         {y: '2013 Q2', item1: 8432}
+                //     ],
+                //     xkey: 'y',
+                //     ykeys: ['item1', 'item2'],
+                //     labels: ['Item 1', 'Item 2'],
+                //     lineColors: ['#3c8dbc', '#8a8a8a'],
+                //     hideHover: 'auto'
+                // });
+var jaxdata;
+var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
+
+        $.ajax({
+  type: "GET",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/visitors/age",
+
+})
+  .done(function( msg ) {
+    var obj = msg["stats"][0];
+    console.log(msg["stats"][0]);
+     var bar = new Morris.Bar({
+                    element: 'chart-age',
                     resize: true,
                     data: [
-                        {y: '2011 Q1', item1: 2666},
-                        {y: '2011 Q2', item1: 2778},
-                        {y: '2011 Q3', item1: 4912},
-                        {y: '2011 Q4', item1: 3767},
-                        {y: '2012 Q1', item1: 6810},
-                        {y: '2012 Q2', item1: 5670},
-                        {y: '2012 Q3', item1: 4820},
-                        {y: '2012 Q4', item1: 15073},
-                        {y: '2013 Q1', item1: 10687},
-                        {y: '2013 Q2', item1: 8432}
+                        {y: '<15', a: obj["l15"]},
+                        {y: '15 - 20', a: obj["1520"]},
+                        {y: '20 - 30', a: obj["2030"]},
+                        {y: '>30', a: obj["g30"]}
                     ],
+                    barColors: ['#00a65a'],
                     xkey: 'y',
-                    ykeys: ['item1'],
-                    labels: ['Item 1'],
+                    ykeys: ['a'],
+                    labels: ['Number of users'],
+                    hideHover: 'auto'
+                });
+
+                });
+
+
+
+
+
+  $.ajax({
+  type: "GET",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/visitors/interests",
+
+})
+  .done(function( msg ) {
+    var obj = msg["stats"][0];
+    console.log(msg["stats"][0]);
+    var ar = []
+    jQuery.each(obj, function(index, value) {
+        if (index!=''){
+        ar.push({'int': index, 'val': value})
+    }
+    });
+    // console.log(ar);
+     var bar = new Morris.Bar({
+                    element: 'chart-interests',
+                    resize: true,
+                    data: ar,
+                    barColors: ['#00a65a'],
+                    xkey: 'int',
+                    ykeys: ['val'],
+                    labels: ['Number of users'],
+                    hideHover: 'auto'
+                });
+
+                });
+
+
+
+
+ $.ajax({
+  type: "GET",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/visitors/monthly",
+
+})
+  .done(function( msg ) {
+    var obj = msg["stats"][0];
+    console.log(msg["stats"][0]);
+    var ar = []
+    jQuery.each(obj, function(index, value) {
+        if (index!=''){
+        ar.push({'int': index, 'val': value})
+    }
+    });
+    // console.log(ar);
+      var line = new Morris.Line({
+                    element: 'chart-monthly',
+                    resize: true,
+                    data: ar,
+                    xkey: 'int',
+                    ykeys: ['val'],
+                    labels: ['Number of active users'],
                     lineColors: ['#3c8dbc'],
                     hideHover: 'auto'
                 });
+
                 });
-            });
+
+
+
+ $.ajax({
+  type: "GET",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/visitors/gender",
+
+})
+  .done(function( msg ) {
+    var obj = msg["stats"][0];
+    console.log(msg["stats"][0]);
+    
+  var donut = new Morris.Donut({
+                    element: 'chart-gender',
+                    resize: true,
+                    colors: ["#3c8dbc", "#f56954"],
+                    data: [
+                        {label: "Male", value: obj.male},
+                        {label: "Female", value: obj.female},
+                    ],
+                    hideHover: 'auto'
+                });
+
+                });
+
+
+ $.ajax({
+  type: "GET",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/visitors/total",
+
+})
+  .done(function( msg ) {
+    var obj = msg["stats"][0];
+    console.log(msg["stats"][0]);
+    $('#totalvisitors').html(obj.total);
+    
+
+                });
+});
+
+
+
         </script>
 
     </body>

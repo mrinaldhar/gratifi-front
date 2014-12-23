@@ -164,7 +164,7 @@ header('Location: ' . $home_url);
                             </a>
                         </li>
                         <li>
-                            <a href="pages/widgets.html">
+                            <a href="visitors.php">
                                 <i class="fa fa-th"></i> <span>Visitors</span> <small class="badge pull-right bg-green">new</small>
                             </a>
                         </li>
