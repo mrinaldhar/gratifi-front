@@ -176,7 +176,7 @@ header('Location: ' . $home_url);
                             </a>
                         </li>
                         <li>
-                            <a href="pages/mailbox.html">
+                            <a href="campaigns.php">
                                 <i class="fa fa-envelope"></i> <span>Campaigns</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>

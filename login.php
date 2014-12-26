@@ -1,3 +1,10 @@
+<?php ob_start();
+session_start();
+if ((isset($_SESSION['username']) && isset($_SESSION['email']) && isset($_SESSION['apikey']))) {
+$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php'; 
+header('Location: ' . $home_url); 
+}
+?>
 <!DOCTYPE html>
 <html class="bg-black">
     <head>
@@ -20,7 +27,7 @@
 
         <div class="form-box" id="login-box">
             <div class="header">Sign In</div>
-            <form action="../gratifi-back/v1/index.php/login" method="POST">
+            <form action="#" onsubmit="dosubmit(); return false;">
                 <div class="body bg-gray">
                     <div class="form-group">
                         <input type="text" id="email" name="email" class="form-control" placeholder="Email Address"/>
@@ -48,24 +55,27 @@
 
     </body>
     <script>
-// function dosubmit() {
-//         $.ajax({
-//   type: "POST",
-//   url: "../gratifi-back/v1/index.php/login",
-//   data: { 
-//     email: $('#email').val(), 
-//     password: $('#password').val() },
-// })
-//   .done(function( msg ) {
-//     if (msg['error']==true) {
-//         alert(msg.message);
-//     }
-//     else {
-//         alert('Login successful.');
-//     }
-//   });
-//      return false;
-// }
+function dosubmit() {
+        $.ajax({
+  type: "POST",
+  url: "../gratifi-back/v1/index.php/login",
+  data: { 
+    email: $('#email').val(), 
+    password: $('#password').val() },
+})
+  .done(function( msg ) {
+    if (msg['error']==true) {
+        alert(msg.message);
+    }
+    else {
+        window.location = "./home.php";
+        // window.reload();
+        // alert('Login successful.');
+        // window.location('./home.php');
+    }
+  });
+     return false;
+}
 
     </script>
 </html>

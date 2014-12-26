@@ -20,7 +20,7 @@
 
         <div class="form-box" id="login-box">
             <div class="header">Register New Account</div>
-             <form action="../gratifi-back/v1/index.php/register" method="POST">
+             <form action="#" onsubmit="dosubmit(); return false;">
                 <div class="body bg-gray">
                     <div class="form-group">
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name"/>
@@ -71,31 +71,31 @@
 
     </body>
     <script>
-// function dosubmit() {
-//         $.ajax({
-//   type: "POST",
-//   url: "../gratifi-back/v1/index.php/register",
-//   data: { 
-//     email: $('#email').val(), 
-//     password: $('#password').val(),
-//     name: $('#name').val(),
-//     country: $('#country').val(),
-//     city: $('#city').val(),
-//     age: $('#age').val(),
-//     gender: $('#gender').val(),
-//     businessid: $('#businessid').val(),
-//      },
-// })
-//   .done(function( msg ) {
-//     if (msg['error']==true) {
-//         alert(msg.message);
-//     }
-//     else {
-//         alert('Login successful.');
-//     }
-//   });
-//      return false;
-// }
+function dosubmit() {
+        $.ajax({
+  type: "POST",
+  url: "../gratifi-back/v1/index.php/register",
+  data: { 
+    email: $('#email').val(), 
+    password: $('#password').val(),
+    name: $('#name').val(),
+    country: $('#country').val(),
+    city: $('#city').val(),
+    age: $('#age').val(),
+    gender: $('#gender').val(),
+    businessid: $('#businessid').val(),
+     },
+})
+  .done(function( msg ) {
+    if (msg['error']==true) {
+        alert(msg.message);
+    }
+    else {
+        alert('Login successful.');
+    }
+  });
+     return false;
+}
 
     </script>
 </html>

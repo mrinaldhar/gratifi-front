@@ -28,7 +28,8 @@ header('Location: ' . $home_url);
         <!-- Theme style -->
         <link href="./css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <link href="./css/morris/morris.css" rel="stylesheet" type="text/css" />
-
+ <link href="./css/bootstrap-slider/slider.css" rel="stylesheet" type="text/css" />
+       
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -164,7 +165,7 @@ header('Location: ' . $home_url);
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="visitors.php">
                                 <i class="fa fa-th"></i> <span>Visitors</span> <small class="badge pull-right bg-green">new</small>
                             </a>
@@ -176,7 +177,7 @@ header('Location: ' . $home_url);
                                 <small class="badge pull-right bg-red">3</small>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="campaigns.php">
                                 <i class="fa fa-envelope"></i> <span>Campaigns</span>
                                 <small class="badge pull-right bg-yellow">12</small>
@@ -205,12 +206,12 @@ header('Location: ' . $home_url);
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                        Campaigns
+                        <small>Manage your business campaigns</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Dashboard</li>
+                        <li class="active">Campaigns</li>
                     </ol>
                 </section>
 
@@ -223,101 +224,101 @@ header('Location: ' . $home_url);
                         <div class="col-lg-12">
                             <!-- small box -->
 
-                            <div class="box box-info">
-                                <div class="box-header">
-                                    <h3 class="box-title">Monthly Usage Statistics</h3>
-                                </div>
-                                <div class="box-body chart-responsive">
-                                    <div class="chart" id="chart-monthly" style="height: 300px;"></div>
-                                </div><!-- /.box-body -->
+                            <!-- <div class="box box-info"> -->
+                                
+                                <!-- START CUSTOM TABS -->
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab_1" data-toggle="tab">View existing</a></li>
+                                    <li><a href="#tab_2" data-toggle="tab">Create new</a></li>
+                                   
+                                    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_1">
+                                        
+                                    <table id="table" class="table table-bordered table-hover">
+                                    </table>
+                                    </div><!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_2">
+                                       <form style="width:50%" onsubmit="createCampaign(); return false;">
+                                            <div class="box-body">
+                                          <div class="form-group">
+                                            <label>Campaign Type</label>
+                                            <select class="form-control" name="c_type">
+                                                <option>Video</option>
+                                                <option>Interstitial</option>
+                                                <option>Feedback Form</option>
+                                                <option>FB Page</option>
+                                                <option>App Download</option>
+                                            </select>
+                                                
+                                        </div>
+                                          <div class="form-group">
+                                            <label>Target age-group</label>
+                                             <input type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[10,50]" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue" name="c_agegroup">
+                                             
+                                        </div>
+                                          <div class="form-group">
+                                            <label>Target Gender</label>
+                                             <select class="form-control" name="c_gender">
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                                <option>Both</option>
+                                            </select>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" name="c_interests" class="form-control" id="exampleInputEmail1" placeholder="Target Interests">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" name="c_cities" class="form-control" id="exampleInputEmail1" placeholder="Target City">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" name="c_cost" class="form-control" id="exampleInputEmail1" placeholder="Cost">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" name="c_conversions" class="form-control" id="exampleInputEmail1" placeholder="Conversions">
+                                        </div>
+                                          <div class="form-group">
+                                                <label>Select Hotspot</label>
+                                            <select class="form-control" id="hotspots" name="c_hotspots">
+                                                
+                                            </select>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">File input</label>
+                                            <input type="file" id="exampleInputFile">
+                                        </div>
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary">Create this campaign</button>
+                                    </div>
+                                </form>
+                                    </div><!-- /.tab-pane -->
+                                </div><!-- /.tab-content -->
+                      
+                    <!-- END CUSTOM TABS -->
                             </div><!-- /.box -->
 
-
+<!-- </div> -->
                         </div><!-- ./col -->
                     
 
                     </div><!-- /.row -->
 
-
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- small box -->
-
-                            <div class="box box-info">
-                                <div class="box-header">
-                                    <h3 class="box-title">Age Statistics</h3>
-                                </div>
-                                <div class="box-body chart-responsive">
-                                    <div class="chart" id="chart-age" style="height: 300px;"></div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-
-
-                        </div><!-- ./col -->
-                        
-                        <div class="col-md-6">
-                            <!-- small box -->
-
-                            <div class="box box-info">
-                                <div class="box-header">
-                                    <h3 class="box-title">Interests Statistics</h3>
-                                </div>
-                                <div class="box-body chart-responsive">
-                                    <div class="chart" id="chart-interests" style="height: 300px;"></div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-
-
-                        </div><!-- ./col -->
-
-                        <div class="col-xs-6">
-                            <!-- small box -->
-
-                            <div class="box box-info">
-                                <div class="box-header">
-                                    <h3 class="box-title">Gender Statistics</h3>
-                                </div>
-                                <div class="box-body chart-responsive">
-                                    <div class="chart" id="chart-gender" style="height: 200px;"></div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-
-
-                        </div><!-- ./col -->
-                         <div class="col-md-6">
-                            <!-- small box -->
-
-                            <div class="box box-info">
-                                <div class="box-header">
-                                    <h3 class="box-title">Monthly Frequency Statistics</h3>
-                                </div>
-                                <div class="box-body chart-responsive">
-                                    <div class="chart" id="chart-timesamonth" style="height: 300px;"></div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-
-
-                        </div><!-- ./col -->
-                    </div><!-- /.row -->
-
-
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <!-- small box -->
-
-                            <div class="box box-solid bg-blue">
-                                <div class="box-body">
-                                    <h4>Total Visitors: <span id="totalvisitors"></span></h4>
-                                    <h4>Visitors/Day: <span id="visitorsperday"></span></h4>
-                                    <h4>Unique Visitors/Month: <span id="uniquevisitors"></span></h4>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-
-
-                        </div><!-- ./col -->
-
-                    </div>
 
                    
                 </section><!-- /.content -->
@@ -349,243 +350,105 @@ header('Location: ' . $home_url);
         <script src="./js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
         <!-- AdminLTE App -->
-         <script src="./js/AdminLTE/app.js" type="text/javascript"></script>
+        <script src="./js/AdminLTE/app.js" type="text/javascript"></script>
 
          <script src="./js/AdminLTE/demo.js" type="text/javascript"></script>
         <script src="./js/plugins/raphael-min.js"></script>
 
         <script src="./js/plugins/morris/morris.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-            $(function() {
-
-                // var line = new Morris.Line({
-                //     element: 'line-chart',
-                //     resize: true,
-                //     data: [
-                //         {y: '2011 Q1', item1: 2666, item2:500},
-                //         {y: '2011 Q2', item1: 2778},
-                //         {y: '2011 Q3', item1: 4912, item2:10000},
-                //         {y: '2011 Q4', item1: 3767},
-                //         {y: '2012 Q1', item1: 6810},
-                //         {y: '2012 Q2', item1: 5670},
-                //         {y: '2012 Q3', item1: 4820},
-                //         {y: '2012 Q4', item1: 15073},
-                //         {y: '2013 Q1', item1: 10687},
-                //         {y: '2013 Q2', item1: 8432}
-                //     ],
-                //     xkey: 'y',
-                //     ykeys: ['item1', 'item2'],
-                //     labels: ['Item 1', 'Item 2'],
-                //     lineColors: ['#3c8dbc', '#8a8a8a'],
-                //     hideHover: 'auto'
-                // });
-var jaxdata;
-var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
-
-        $.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-            },
-  url: "../gratifi-back/v1/index.php/visitors/age",
-
-})
-  .done(function( msg ) {
-    var obj = msg["stats"][0];
-    console.log(msg["stats"][0]);
-     var bar = new Morris.Bar({
-                    element: 'chart-age',
-                    resize: true,
-                    data: [
-                        {y: '<15', a: obj["l15"]},
-                        {y: '15 - 20', a: obj["1520"]},
-                        {y: '20 - 30', a: obj["2030"]},
-                        {y: '>30', a: obj["g30"]}
-                    ],
-                    barColors: ['#00a65a'],
-                    xkey: 'y',
-                    ykeys: ['a'],
-                    labels: ['Number of users'],
-                    hideHover: 'auto'
-                });
-
-                });
-
-
-
-
-
-  $.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-            },
-  url: "../gratifi-back/v1/index.php/visitors/interests",
-
-})
-  .done(function( msg ) {
-    var obj = msg["stats"][0];
-    console.log(msg["stats"][0]);
-    var ar = []
-    jQuery.each(obj, function(index, value) {
-        if (index!=''){
-        ar.push({'int': index, 'val': value})
-    }
-    });
-    // console.log(ar);
-     var bar = new Morris.Bar({
-                    element: 'chart-interests',
-                    resize: true,
-                    data: ar,
-                    barColors: ['#00a65a'],
-                    xkey: 'int',
-                    ykeys: ['val'],
-                    labels: ['Number of users'],
-                    hideHover: 'auto'
-                });
-
-                });
-
-
-
-
- $.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-            },
-  url: "../gratifi-back/v1/index.php/visitors/monthly",
-
-})
-  .done(function( msg ) {
-    var obj = msg["stats"][0];
-    console.log(msg["stats"][0]);
-    var ar = []
-    jQuery.each(obj, function(index, value) {
-        if (index!=''){
-        ar.push({'int': index, 'val': value})
-    }
-    });
-    // console.log(ar);
-      var line = new Morris.Line({
-                    element: 'chart-monthly',
-                    resize: true,
-                    data: ar,
-                    xkey: 'int',
-                    ykeys: ['val'],
-                    labels: ['Number of active users'],
-                    lineColors: ['#3c8dbc'],
-                    hideHover: 'auto'
-                });
-
-                });
-
-
-
- $.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-            },
-  url: "../gratifi-back/v1/index.php/visitors/gender",
-
-})
-  .done(function( msg ) {
-    var obj = msg["stats"][0];
-    console.log(msg["stats"][0]);
-    
-  var donut = new Morris.Donut({
-                    element: 'chart-gender',
-                    resize: true,
-                    colors: ["#3c8dbc", "#f56954"],
-                    data: [
-                        {label: "Male", value: obj.male},
-                        {label: "Female", value: obj.female},
-                    ],
-                    hideHover: 'auto'
-                });
-
-                });
-
-
- $.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-            },
-  url: "../gratifi-back/v1/index.php/visitors/total",
-
-})
-  .done(function( msg ) {
-    var obj = msg["stats"][0];
-    console.log(msg["stats"][0]);
-    $('#totalvisitors').html(obj.total);
-
-                });
-
-
-
-   $.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-            },
-  url: "../gratifi-back/v1/index.php/visitors/timesamonth",
-
-})
-  .done(function( msg ) {
-    var obj = msg["stats"][0];
-    console.log(msg["stats"][0]);
-    var ar = [0,0,0,0];
-    var totalnum = 0;
-    jQuery.each(obj, function(index, value) {
-        if (value==1) {
-            ar[0]++;
-        }
-        else if (value == 2 || value == 3) {
-            ar[1]++;
-        }
-        else if (value == 4 || value == 5) {
-            ar[2]++;
-        }
-        else if (value > 5) {
-            ar[3]++;
-        }
-    
-    totalnum++;
-    });
-console.log(ar);
-var bar = new Morris.Bar({
-                    element: 'chart-timesamonth',
-                    resize: true,
-                    data: [ {int: '1', val: ar[0]*100/totalnum},
-                    {int: '2 or 3', val: ar[1]*100/totalnum},
-                    {int: '4 or 5', val: ar[2]*100/totalnum},
-                    {int: '>5', val: ar[3]*100/totalnum}
-                    ],
-                    barColors: ['#00a65a'],
-                    xkey: 'int',
-                    ykeys: ['val'],
-                    labels: ['Percent of users'],
-                    hideHover: 'auto'
-                });
-$('#uniquevisitors').html(totalnum);
-                });
-
-
-
-
-});
-
-
-
-        </script>
+<script src="./js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="./js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+        <script src="./js/plugins/bootstrap-slider/bootstrap-slider.js" type="text/javascript"></script>
 
     </body>
+
+    <script>
+                $(function() {
+                /* BOOTSTRAP SLIDER */
+                $('.slider').slider();
+
+});
+    var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
+$.ajax({
+  type: "GET",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/allcampaigns",
+
+})
+  .done(function( msg ) {
+    console.log(msg);
+    var array = msg.details[0];
+    $('#table').html('<thead><tr><th>Type</th><th>Status</th><th>Reach</th><th>Conversion</th><th>Cost</th><th>City</th></tr></thead>');
+    for (var i=0; i<array.length; i++) {
+        var item = array[i];
+        var row = "<tr style='cursor: pointer;' id='"+item.id+"' onclick='showcampaign()'><td>"+item.campaign_type+"</td><td>"+item.status+"</td><td>"+item.metric_views+"</td><td>"+item.metric_conversions+"</td><td>"+item.metric_total_cost+"</td><td>"+item.target_cities+"</td><td>"+"<button class='.btn btn-danger' id='"+item.id+"' onclick='deletethis()'>Remove</button></td></tr>";
+        $('#table').append(row);
+
+    }
+    $('#table').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+
+                });
+$.ajax({
+  type: "GET",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/hotspots",
+
+})
+  .done(function( msg ) {
+    console.log(msg.list[0]);
+    var array = msg.list[0];
+    for (var i=0; i<array.length; i++) {
+        var item = array[i];
+        $('#hotspots').append('<option id="'+item.split('+')[1]+'">'+item.split('+')[0]+'</option>');
+    }
+
+                });
+
+
+function createCampaign() {
+    $.ajax({
+  type: "POST",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+            },
+  url: "../gratifi-back/v1/index.php/addcampaign",
+  data: {
+            c_type: $('#c_type').val(),
+            c_agegroup: document.getElementById('c_agegroup').data-slider-value,
+            c_gender: $('#c_gender').val(),
+            c_interests: $('#c_interests').val(),
+            c_cities: $('#c_cities').val(),
+            c_hotspots: $('#c_hotspots').val(),
+            c_conversions: $('#c_conversions').val(),
+            c_cost: $('#c_cost').val()
+  },
+})
+  .done(function( msg ) {
+    console.log(msg.list[0]);
+    var array = msg.list[0];
+    for (var i=0; i<array.length; i++) {
+        var item = array[i];
+        $('#hotspots').append('<option id="'+item.split('+')[1]+'">'+item.split('+')[0]+'</option>');
+    }
+
+                });
+
+  return false;
+}
+
+    </script>
 </html>
