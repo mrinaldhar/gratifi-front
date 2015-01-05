@@ -26,13 +26,14 @@
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name"/>
                     </div>
                     <div class="form-group">
+                        <select class="form-control" id="exist_business" name="exist_business"><option>Existing Business</option><option>New Business</option></select>
                         <input type="text" id="businessid" name="businessid" class="form-control" placeholder="Business ID"/>
                     </div>
                     <div class="form-group">
                         <input type="text" id="email" name="email" class="form-control" placeholder="Email Address"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Phone Number"/>
+                        <input type="phone" id="mobile" name="mobile" class="form-control" placeholder="Phone Number"/>
                     </div>
                     <div class="form-group">
                         <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
@@ -83,6 +84,8 @@ function dosubmit() {
     city: $('#city').val(),
     age: $('#age').val(),
     gender: $('#gender').val(),
+    mobile: $('#mobile').val(),
+    exist_business: $('#exist_business').val(),
     businessid: $('#businessid').val(),
      },
 })

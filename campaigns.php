@@ -229,6 +229,7 @@ header('Location: ' . $home_url);
                                 <!-- START CUSTOM TABS -->
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs">
+                                    <li><a href="#tab_0" data-toggle="tab">Campaign Reach</a></li>
                                     <li class="active"><a href="#tab_1" data-toggle="tab">View existing</a></li>
                                     <li><a href="#tab_2" data-toggle="tab">Create new</a></li>
                                    
@@ -240,6 +241,9 @@ header('Location: ' . $home_url);
                                     <table id="table" class="table table-bordered table-hover">
                                     </table>
                                     </div><!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_0">
+                                        Hi
+                                    </div>
                                     <div class="tab-pane" id="tab_2">
                                        <form style="width:50%" onsubmit="createCampaign(); return false;">
                                             <div class="box-body">
@@ -401,7 +405,7 @@ $.ajax({
     $('#table').html('<thead><tr><th>Type</th><th>Status</th><th>Reach</th><th>Conversion</th><th>Cost</th><th>City</th></tr></thead>');
     for (var i=0; i<array.length; i++) {
         var item = array[i];
-        var row = "<tr style='cursor: pointer;' id='"+item.id+"' onclick='showcampaign("+item.id+")'><td>"+item.campaign_type+"</td><td>"+item.status+"</td><td>"+item.metric_views+"</td><td>"+item.metric_conversions+"</td><td>"+item.metric_total_cost+"</td><td>"+item.target_cities+"</td><td>"+"<button class='.btn btn-danger' id='"+item.id+"' onclick='deletethis("+item.id+")'>Remove</button></td></tr>";
+        var row = "<tr style='cursor: pointer;'><td>"+item.campaign_type+"</td><td><select class='statusdropdown' id='"+item.id+"'><option>Running</option><option>Sleep</option><option>Dead</option></select></td><td>"+item.metric_views+"</td><td>"+item.metric_conversions+"</td><td>"+item.metric_total_cost+"</td><td>"+item.target_cities+"</td><td style='border-top:0px; border-right:0px; border-bottom:0px;'>"+"<button class='.btn btn-danger' onclick='deletethis("+item.id+")'>Remove</button><button class='.btn btn-primary' onclick='showcampaign("+item.id+")'>View</button></td></tr>";
         $('#table').append(row);
 
     }
@@ -413,6 +417,7 @@ $.ajax({
                     "bInfo": true,
                     "bAutoWidth": false
                 });
+
 
                 });
 $.ajax({
@@ -435,8 +440,16 @@ $.ajax({
                 });
 
 
+
+ $('.statusdropdown').change(function() {
+        alert('hwoa');
+    });
+
+
+
+
 function createCampaign() {
-    alert('works');
+    // alert('works');
     // console.log($('.slider').val());
     // alert(document.getElementById('c_agegroup').data);
     $.ajax({
@@ -528,7 +541,8 @@ function showcampaign(item_id) {
 })
   .done(function( msg ) {
     // document.write(msg);
-    document.write(JSON.stringify(msg.result[0]));
+    // document.write(JSON.stringify(msg.result[0]));
+    document.write(msg);
                 });
 }
 function deletethis(item_id) {
