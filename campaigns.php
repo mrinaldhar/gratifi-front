@@ -390,11 +390,14 @@ header('Location: ' . $home_url);
 
 // });
     var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
+    var userType = "map_user";
 $.ajax({
   type: "GET",
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+
             },
   url: "../gratifi-back/v1/index.php/allcampaigns",
 
@@ -425,6 +428,8 @@ $.ajax({
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+
             },
   url: "../gratifi-back/v1/index.php/hotspots",
 
@@ -457,6 +462,8 @@ function createCampaign() {
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+
             },
   url: "../gratifi-back/v1/index.php/addcampaign",
   data: {
@@ -534,6 +541,8 @@ function showcampaign(item_id) {
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+
             },
   url: "../gratifi-back/v1/index.php/campaign/"+item_id,
   
@@ -554,6 +563,8 @@ function deletethis(item_id) {
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+                
             },
   url: "../gratifi-back/v1/index.php/campaign/"+item_id,
   

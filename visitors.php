@@ -381,12 +381,13 @@ header('Location: ' . $home_url);
                 // });
 var jaxdata;
 var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
-
+var userType = 'map_user';
         $.ajax({
   type: "GET",
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
             },
   url: "../gratifi-back/v1/index.php/visitors/age",
 
@@ -421,6 +422,8 @@ var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+
             },
   url: "../gratifi-back/v1/index.php/visitors/interests",
 
@@ -456,6 +459,8 @@ var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+
             },
   url: "../gratifi-back/v1/index.php/visitors/monthly",
 
@@ -490,6 +495,8 @@ var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+
             },
   url: "../gratifi-back/v1/index.php/visitors/gender",
 
@@ -517,6 +524,8 @@ var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+                
             },
   url: "../gratifi-back/v1/index.php/visitors/total",
 
@@ -535,6 +544,8 @@ var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
   beforeSend: function (request)
             {
                 request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
+                
             },
   url: "../gratifi-back/v1/index.php/visitors/timesamonth",
 
