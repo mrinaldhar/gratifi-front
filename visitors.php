@@ -148,41 +148,41 @@ header('Location: ' . $home_url);
                         </div>
                     </div>
                     <!-- search form -->
-                    <form action="#" method="get" class="sidebar-form">
+                    <!-- <form action="#" method="get" class="sidebar-form">
                         <div class="input-group">
                             <input type="text" name="q" class="form-control" placeholder="Search..."/>
                             <span class="input-group-btn">
                                 <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                             </span>
                         </div>
-                    </form>
+                    </form> -->
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li>
+                       <!--  <li>
                             <a href="home.php">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                                <i class="fa fa-dashboard"></i> <span>Visitor Analytics</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="active">
                             <a href="visitors.php">
-                                <i class="fa fa-th"></i> <span>Visitors</span> <small class="badge pull-right bg-green">new</small>
+                                <i class="fa fa-th"></i> <span>Visitors</span> <!-- <small class="badge pull-right bg-green">new</small> -->
                             </a>
                         </li>
                         
                         <li>
-                            <a href="pages/calendar.html">
+                            <a href="hotspots.php">
                                 <i class="fa fa-calendar"></i> <span>Hotspots</span>
-                                <small class="badge pull-right bg-red">3</small>
+                                <!-- <small class="badge pull-right bg-red">3</small> -->
                             </a>
                         </li>
                         <li>
                             <a href="campaigns.php">
                                 <i class="fa fa-envelope"></i> <span>Campaigns</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                                <!-- <small class="badge pull-right bg-yellow">12</small> -->
                             </a>
                         </li>
-                        <li>
+                       <!--  <li>
                             <a href="pages/mailbox.html">
                                 <i class="fa fa-envelope"></i> <span>Real-time</span>
                                 <small class="badge pull-right bg-yellow">12</small>
@@ -193,7 +193,7 @@ header('Location: ' . $home_url);
                                 <i class="fa fa-envelope"></i> <span>Settings</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
-                        </li>
+                        </li> -->
                         
                     </ul>
                 </section>
@@ -205,12 +205,12 @@ header('Location: ' . $home_url);
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                        Visitor Stats
+                        <small>for App Users</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Dashboard</li>
+                        <li class="active">Visitors</li>
                     </ol>
                 </section>
 
@@ -271,7 +271,7 @@ header('Location: ' . $home_url);
 
                         </div><!-- ./col -->
 
-                        <div class="col-xs-6">
+                        <div class="col-md-6">
                             <!-- small box -->
 
                             <div class="box box-info">
@@ -279,7 +279,7 @@ header('Location: ' . $home_url);
                                     <h3 class="box-title">Gender Statistics</h3>
                                 </div>
                                 <div class="box-body chart-responsive">
-                                    <div class="chart" id="chart-gender" style="height: 200px;"></div>
+                                    <div class="chart" id="chart-gender" style="height: 300px;"></div>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
 
@@ -302,7 +302,7 @@ header('Location: ' . $home_url);
                     </div><!-- /.row -->
 
 
-                    <div class="row">
+                    <div class="row" style="display: none">   <!-- ****#*#*#*#*#*#*#  THIS BOX IS BEING HIDDEN!!! -->
                         <div class="col-xs-3">
                             <!-- small box -->
 

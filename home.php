@@ -4,6 +4,11 @@ if (!(isset($_SESSION['username']) && isset($_SESSION['email']) && isset($_SESSI
 $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php'; 
 header('Location: ' . $home_url); 
 }
+else {
+$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/visitors.php'; 
+header('Location: ' . $home_url); 
+
+}
 ?>
 <!DOCTYPE html>
 <html>

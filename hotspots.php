@@ -171,13 +171,13 @@ header('Location: ' . $home_url);
                             </a>
                         </li>
                         
-                        <li>
-                            <a href="hotspots.php">
+                        <li class="active">
+                            <a href="hotspot.php">
                                 <i class="fa fa-calendar"></i> <span>Hotspots</span>
                                 <!-- <small class="badge pull-right bg-red">3</small> -->
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="campaigns.php">
                                 <i class="fa fa-envelope"></i> <span>Campaigns</span>
                                 <!-- <small class="badge pull-right bg-yellow">12</small> -->
@@ -206,12 +206,12 @@ header('Location: ' . $home_url);
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Campaigns
-                        <small>Manage your business campaigns</small>
+                        Hotspots
+                        <small>Manage your wifi hotspots</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Campaigns</li>
+                        <li class="active">Hotspots</li>
                     </ol>
                 </section>
 
@@ -229,9 +229,8 @@ header('Location: ' . $home_url);
                                 <!-- START CUSTOM TABS -->
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs">
-                                    <li><a href="#tab_0" data-toggle="tab">Campaign Reach</a></li>
                                     <li class="active"><a href="#tab_1" data-toggle="tab">View existing</a></li>
-                                    <li><a href="#tab_2" data-toggle="tab">Create new</a></li>
+                                    <li><a href="#tab_2" data-toggle="tab">Other Information</a></li>
                                    
                                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                                 </ul>
@@ -241,95 +240,15 @@ header('Location: ' . $home_url);
                                     <table id="table" class="table table-bordered table-hover">
                                     </table>
                                     </div><!-- /.tab-pane -->
-                                    <div class="tab-pane" id="tab_0">
-                                       
-                                    <table id="table2" class="table table-bordered table-hover">
-                                    </table>
-                                    </div>
+                                  
                                     <div class="tab-pane" id="tab_2">
-                                       <form style="width:50%" onsubmit="createCampaign(); return false;">
-                                            <div class="box-body">
-                                          <div class="form-group">
-                                            <label>Campaign Type</label>
-                                            <select class="form-control" id="c_type" name="c_type">
-                                                <option>Video</option>
-                                                <option>Interstitial</option>
-                                                <option>Feedback Form</option>
-                                                <option>FB Page</option>
-                                                <option>App Download</option>
-                                            </select>
-                                                
-                                        </div>
-                                          <div class="form-group">
-                                            <label>Target age-group</label>
-                                             <input type="text" value="" id="c_agegroup" class="slider form-control" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[10,50]" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue" name="c_agegroup">
-                                             
-                                        </div>
-                                          <div class="form-group">
-                                            <label>Target Gender</label>
-                                             <select class="form-control" id="c_gender" name="c_gender">
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>Both</option>
-                                            </select>
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" name="c_interests" id="c_interests" class="form-control" placeholder="Target Interests">
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" name="c_cities" id="c_cities" class="form-control" placeholder="Target City">
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" name="c_cost" id="c_cost" class="form-control" placeholder="Cost">
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" name="c_conversions" id="c_conversions" class="form-control" placeholder="Conversions">
-                                        </div>
-                                          <div class="form-group">
-                                                <label>Select Hotspot</label>
-                                            <select class="form-control" id="hotspots" name="c_hotspots">
-                                                <option>All Hotspots</option>
-                                            </select>
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" id="link" class="form-control interstuff" placeholder="Link to be used">
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" id="msg" class="form-control " placeholder="Message to be used">
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" id="question" class="form-control feedstuff" placeholder="Question to be used">
-                                        </div>
-                                          <div class="form-group">
-                                            <input type="text" id="linkfb" class="form-control fbstuff" placeholder="Link to Facebook page">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="linkplay" class="form-control appstuff" placeholder="Link to Playstore app">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="opt1" class="form-control feedstuff" placeholder="Option 1">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="opt2" class="form-control feedstuff" placeholder="Option 2">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="opt3" class="form-control feedstuff" placeholder="Option 3">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="imgurl" class="form-control interstuff" placeholder="URL of image to be used">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="logourl" class="form-control " placeholder="URL of logo to be used">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="videourl" class="form-control videostuff" placeholder="URL of video to be used">
-                                        </div>
-                                    </div><!-- /.box-body -->
+                                       <!-- <form style="width:50%" onsubmit="createCampaign(); return false;">
+                                            Contains form for a new hotspot
 
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Create this campaign</button>
                                     </div>
-                                </form>
+                                </form> -->
                                     </div><!-- /.tab-pane -->
                                 </div><!-- /.tab-content -->
                       
@@ -391,57 +310,8 @@ header('Location: ' . $home_url);
                 // $('.slider').slider();
 
 // });
-
-$('.videostuff').show();
-            $('.interstuff').hide();
-            $('.feedstuff').hide();
-            $('.fbstuff').hide();
-            $('.appstuff').hide();
-            
     var AuthToken = "<?php echo $_SESSION['apikey']; ?>";
     var userType = "map_user";
-$.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-                request.setRequestHeader("User_Type", userType);
-
-            },
-  url: "../gratifi-back/v1/index.php/allcampaigns",
-
-})
-  .done(function( msg ) {
-    // console.log(msg);
-    var array = msg.details[0];
-    $('#table').html('<thead><tr><th>Type</th><th>Status</th><th>Reach</th><th>Conversion</th><th>Limit</th><th>City</th></tr></thead>');
-    $('#table2').html('<thead><tr><th>Type</th><th>Status</th><th>Reach</th><th>Conversion</th><th>Limit</th><th>City</th></tr></thead>');
-    
-    for (var i=0; i<array.length; i++) {
-        var item = array[i];
-        var row = "<tr style='cursor: pointer;'><td>"+item.campaign_type+"</td><td><select class='statusdropdown' id='"+item.id+"'><option>Running</option><option>Sleep</option><option>Dead</option></select></td><td>"+item.metric_views+"</td><td>"+item.metric_conversions+"</td><td>"+item.metric_total_cost+"</td><td>"+item.target_cities+"</td><td style='border-top:0px; border-right:0px; border-bottom:0px;'>"+"<button class='.btn btn-danger' onclick='deletethis("+item.id+")'>Remove</button><button class='.btn btn-primary' onclick='showcampaign("+item.id+")'>View</button></td></tr>";
-        $('#table').append(row);
-        $('#table2').append(row);
-    }
-    $('#table').dataTable({
-                    "bPaginate": true,
-                    "bLengthChange": false,
-                    "bFilter": false,
-                    "bSort": true,
-                    "bInfo": true,
-                    "bAutoWidth": false
-                });
-      $('#table2').dataTable({
-                    "bPaginate": true,
-                    "bLengthChange": false,
-                    "bFilter": false,
-                    "bSort": true,
-                    "bInfo": true,
-                    "bAutoWidth": false
-                });
-
-
-                });
 $.ajax({
   type: "GET",
   beforeSend: function (request)
@@ -455,152 +325,38 @@ $.ajax({
 })
   .done(function( msg ) {
     // console.log(msg);
-    // console.log(msg.list[0]);
+    $('#table').html('<thead><tr><th>SSID</th><th>Status</th><th>Login URL</th><th>Login Username</th></tr></thead>');
+   
     var array = msg.list[0];
-
-    // console.log(array);
+    console.log(array);
     for (var i=0; i<array.length; i++) {
         var item = array[i];
-        console.log("HERE:");
         console.log(item);
-        $('#hotspots').append('<option id="'+item.hid+'">'+item.hname+'</option>');
+        var row = "<tr style='cursor: pointer;'><td>"+item.hname+"</td><td>"+item.hstatus+"</td><td>"+item.hurl+"</td><td>"+item.huname+"</td></tr>";
+        $('#table').append(row);
     }
+    $('#table').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+   
 
                 });
 
 
 
- // $('.statusdropdown').change(function() {
- //        alert('hwoa');
- //    });
 
+// function createHotspot() {
+//     // alert('works');
+//     // console.log($('.slider').val());
+//     // alert(document.getElementById('c_agegroup').data);
+//    alert("This will create a new hotspot in real version.");
 
-
-
-function createCampaign() {
-    // alert('works');
-    // console.log($('.slider').val());
-    // alert(document.getElementById('c_agegroup').data);
-    $.ajax({
-  type: "POST",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-                request.setRequestHeader("User_Type", userType);
-
-            },
-  url: "../gratifi-back/v1/index.php/addcampaign",
-  data: {
-            c_type: $('#c_type').val(),
-            c_agegroup: $('#c_agegroup').val(),
-            c_gender: $('#c_gender').val(),
-            c_interests: $('#c_interests').val(),
-            c_cities: $('#c_cities').val(),
-            c_hotspots: $('#hotspots').val(),
-            c_conversions: $('#c_conversions').val(),
-            c_cost: $('#c_cost').val(),
-            link: $('#link').val(),
-            msg: $('#msg').val(),
-            question: $('#question').val(),
-            linkfb: $('#linkfb').val(),
-            linkplay: $('#linkplay').val(),
-            opt1: $('#opt1').val(),
-            opt2: $('#opt2').val(),
-            opt3: $('#opt3').val(),
-            imgurl: $('#imgurl').val(),
-            logourl: $('#logourl').val(),
-            videourl: $('#videourl').val(),
-  },
-})
-  .done(function( msg ) {
-    alert('Campaign created successfully!');
-    window.reload();
-                });
-
-//   return false;
-}
-$('#c_type').change(function() {
-    // console.log(this.value);
-    $('.interstuff').hide();
-    switch(this.value) {
-        case 'Video':
-            $('.videostuff').show();
-            $('.interstuff').hide();
-            $('.feedstuff').hide();
-            $('.fbstuff').hide();
-            $('.appstuff').hide();
-            break;
-        case 'Interstitial':
-            $('.videostuff').hide();
-            $('.interstuff').show();
-            $('.feedstuff').hide();
-            $('.fbstuff').hide();
-            $('.appstuff').hide();
-            break;
-        case 'Feedback Form':
-            $('.videostuff').hide();
-            $('.interstuff').hide();
-            $('.feedstuff').show();
-            $('.fbstuff').hide();
-            $('.appstuff').hide();
-            break;
-        case 'FB Page':
-            $('.videostuff').hide();
-            $('.interstuff').hide();
-            $('.feedstuff').hide();
-            $('.fbstuff').show();
-            $('.appstuff').hide();
-            break;
-        case 'App Download':
-            $('.videostuff').hide();
-            $('.interstuff').hide();
-            $('.feedstuff').hide();
-            $('.fbstuff').hide();
-            $('.appstuff').show();
-            break;
-    }
-});
-function showcampaign(item_id) {
-    $.ajax({
-  type: "GET",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-                request.setRequestHeader("User_Type", userType);
-
-            },
-  url: "../gratifi-back/v1/index.php/campaign/"+item_id,
-  
-
-})
-  .done(function( msg ) {
-    // document.write(msg);
-    // document.write(JSON.stringify(msg.result[0]));
-    document.write(msg);
-        // window.open().document.write(msg);
-                });
-}
-function deletethis(item_id) {
-    var ask = confirm('Are you sure you wish to remove this campaign?');
-    if (ask == true)
-    {
-    $.ajax({
-  type: "DELETE",
-  beforeSend: function (request)
-            {
-                request.setRequestHeader("Authorization", AuthToken);
-                request.setRequestHeader("User_Type", userType);
-                
-            },
-  url: "../gratifi-back/v1/index.php/campaign/"+item_id,
-  
-
-})
-  .done(function( msg ) {
-    alert('Removed successfully.');
-    window.reload();
-                });
-}
-}
+// //   return false;
+// }
     </script>
 </html>
