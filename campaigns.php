@@ -262,8 +262,12 @@ header('Location: ' . $home_url);
                                         </div>
                                           <div class="form-group">
                                             <label>Target age-group</label>
-                                             <input type="text" value="" id="c_agegroup" class="slider form-control" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[10,50]" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue" name="c_agegroup">
-                                             
+                                            <select id="c_agegroup" class="form-control" name="c_agegroup">
+                                                <option>Less than 15</option>
+                                                <option>Between 15 and 20</option>
+                                                <option>Between 20 and 30</option>
+                                                <option>Greater than 30</option>
+                                                </select>
                                         </div>
                                           <div class="form-group">
                                             <label>Target Gender</label>
