@@ -230,7 +230,7 @@ header('Location: ' . $home_url);
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#tab_1" data-toggle="tab">View existing</a></li>
-                                    <li><a href="#tab_2" data-toggle="tab">Other Information</a></li>
+                                    <li><a href="#tab_2" data-toggle="tab">Create New</a></li>
                                    
                                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                                 </ul>
@@ -242,14 +242,30 @@ header('Location: ' . $home_url);
                                     </div><!-- /.tab-pane -->
                                   
                                     <div class="tab-pane" id="tab_2">
-                                       <!-- <form style="width:50%" onsubmit="createCampaign(); return false;">
-                                            Contains form for a new hotspot
+                                       <form style="width:50%" onsubmit="createHotspot(); return false;">
+                                            <div class="box-body">
+                                          <div class="form-group">
+                                                <label>Enter Hotspot Details:</label>
 
+                                            <input type="text" name="h_ssid" id="h_ssid" class="form-control" placeholder="Wifi SSID">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="password" name="h_password" id="h_password" class="form-control" placeholder="Wifi Password">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" name="h_loginurl" id="h_loginurl" class="form-control" placeholder="Hostpot Login URL">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" name="h_loginuser" id="h_loginuser" class="form-control" placeholder="Hotspot Login User">
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="password" id="h_loginpwd" name="h_loginpwd" class="form-control" placeholder="Hotspot Login Password">
+                                        </div>
+                                    </div><!-- /.box-body -->
                                     <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Create this campaign</button>
+                                        <button type="submit" class="btn btn-primary">Create this hotspot</button>
                                     </div>
-                                </form> -->
-                                    </div><!-- /.tab-pane -->
+                                </form>
                                 </div><!-- /.tab-content -->
                       
                     <!-- END CUSTOM TABS -->
@@ -347,7 +363,30 @@ $.ajax({
 
                 });
 
+function createHotspot() {
+    $.ajax({
+  type: "POST",
+  beforeSend: function (request)
+            {
+                request.setRequestHeader("Authorization", AuthToken);
+                request.setRequestHeader("User_Type", userType);
 
+            },
+  url: "../gratifi-back/v1/index.php/addhotspot",
+  data: {
+            h_ssid: $('#h_ssid').val(),
+            h_password: $('#h_password').val(),
+            h_loginurl: $('#h_loginurl').val(),
+            h_loginpwd: $('#h_loginpwd').val(),
+            h_loginuser: $('#h_loginuser').val(),
+  },
+})
+  .done(function( msg ) {
+    alert('Hotspot created successfully!');
+    window.reload();
+                });
+
+}
 
 
 // function createHotspot() {
