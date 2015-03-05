@@ -172,7 +172,7 @@ header('Location: ' . $home_url);
                         </li>
                         
                         <li class="active">
-                            <a href="hotspot.php">
+                            <a href="hotspots.php">
                                 <i class="fa fa-calendar"></i> <span>Hotspots</span>
                                 <!-- <small class="badge pull-right bg-red">3</small> -->
                             </a>
